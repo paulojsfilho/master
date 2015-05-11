@@ -291,3 +291,10 @@ color:#555;
 }
 
 
+footer {
+background-image: url("imagens/footer.png");
+background-color: #064475;
+height:100px;
+color:#FFFFFF;
+font-weight:bold;
+}
