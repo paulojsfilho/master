@@ -8,6 +8,9 @@ $consulta = ("select participantes.arquivoFoto,participantes.login, participante
 $query = mysqli_multi_query($connect, $consulta);
 if ($resultado = mysqli_use_result($connect)) {
 		while ($dados = mysqli_fetch_array($resultado)) {
+		
+
+		
 		echo " <img class=\"imagem\" src=\"./uploads/".$dados["login"]."/".$dados["arquivoFoto"]."\" alt=\"".$dados["nomeCompleto"]."\"><br />" ;
 		echo "<p class=\"descricao\"> E-mail: ".$dados["email"]."<br />Nome: ".$dados["nomeCompleto"]."<br />Descrição: ".$dados["descricao"]."<br />Cidade: ".$dados["nomeCidade"]."<br /></p><br /><br />";
 
