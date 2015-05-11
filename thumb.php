@@ -10,9 +10,11 @@
        }
 		if ($resultado = mysqli_use_result($connect)) {
             while ($dados=mysqli_fetch_array($resultado)) {
+				echo "<div>";
 				echo "<a href=\"perfil_participantes.php?login2=".$dados["login"]."\">";
 				echo " <div class=\"caixa\"><img class=\"imagem\" src=\"./uploads/".$dados["login"]."/".$dados["arquivoFoto"]."\" alt=\"".$dados["nomeCompleto"]."\"><br />" ;
 				echo "<p class=\"texto\">".$dados["nomeCompleto"]."</p></div></a>";
+				echo "</div>";
 			}
 		}
 ?>
