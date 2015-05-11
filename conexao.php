@@ -1,6 +1,6 @@
 <?php
- $connect = mysqli_connect("http://br-cdbr-azure-south-a.cloudapp.net/", "b52f673b9e8d7a", "82b32b8c", "paulojosebd");
-       if(mysqli_connect_errno()) {
+ $connect = mysqli_connect("Database=paulojosedb;Data Source=br-cdbr-azure-south-a.cloudapp.net;User Id=b52f673b9e8d7a;Password=82b32b8c");
+        if(mysqli_connect_errno()) {
           echo "<h1>Falha na conexão.  Entre em contato com o Administrador!</h1>";
            echo mysqli_connect_error();
           die();
