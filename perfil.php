@@ -3,21 +3,22 @@ include("topo.html");
 if(isset($_COOKIE["login"])){
 session_start();
 echo"<div class=\"row\">";
+echo "<div class=\"col-md-12\">";
 include("conexao.php");
 $login2 = $_COOKIE["login"];
 $consulta = ("select participantes.arquivoFoto,participantes.login, participantes.nomeCompleto,participantes.email,participantes.descricao,participantes.cidade,cidades.idCidade,cidades.nomeCidade from participantes inner join cidades on participantes.cidade = cidades.idCidade where participantes.login = '$login2' order by participantes.login");
 $query = mysqli_multi_query($connect, $consulta);
 if ($resultado = mysqli_use_result($connect)) {
 		while ($dados = mysqli_fetch_array($resultado)) {
-		echo "<div class=\"col-sm-6 col-md-12\">";		
-		echo "<div class=\"thumbnail\">";
-		echo "<img data-src=\"holder.js/240x320\" src=\"./imagens/".$dados["arquivoFoto"]."\" alt=\"".$dados["nomeCompleto"]."\">";		
-		echo "<div class=\"caption\">";
-		echo "<h5> E-mail: ".$dados["email"]."<br />Nome: ".$dados["nomeCompleto"]."<br />Descrição: ".$dados["descricao"]."<br />Cidade: ".$dados["nomeCidade"]."</h5><br /></p><br />";
-		echo "</div>";					
-		echo "<a href=\"javascript:window.history.go(-1)\" class=\"btn btn-primary\" role=\"button\"><span class=\"glyphicon glyphicon-arrow-left\"></span> Voltar </a> ";
-		echo "<a href=\"finalizar.php\" name=\"sair\" class=\"btn btn-primary\" role=\"button\">Sair <span class=\"glyphicon glyphicon-remove\"></span></a>";		
-echo"</div>";
+			echo "<div class=\"col-sm-6 col-md-3\">";
+			echo "<div class=\"thumbnail\">";
+			echo "<img data-src=\"holder.js/240x320\" src=\"./imagens/".$dados["arquivoFoto"]."\" alt=\"".$dados["nomeCompleto"]."\">";
+			echo "<div class=\"caption\">";
+			echo "<h5>" .$dados["nomeCompleto"]."</h5>";
+			echo "</div>";			
+			echo "<p><a href=\"perfil_participantes.php?login2=".$dados["login"]."\" class=\"btn btn-primary\" role=\"button\">Visualizar Perfil <span class=\"glyphicon glyphicon-ok\"></span></a></p>";
+			echo "</div>";
+			echo "</div>";	
 echo"</div>";
 
 
